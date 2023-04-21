@@ -1,6 +1,6 @@
-# Common install auto shell for ubuntu
+# Common install auto shell for Linux
 
-## instructions 
+## Ubuntu instructions 
 ### Install python3.10 and pip in ubuntu system
 Install python3.10 and pip please use: __install-python-3.10-pip.sh__
 ```bash
