@@ -5,6 +5,7 @@ read DownloadPython
 case ${DownloadPython:0:1} in
   y|Y )
      echo -e "$DownloadPython"
+     echo -e "bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-python-3.10-pip.sh)"
      bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-python-3.10-pip.sh)
      echo -e "\033[32m安装完成！！\033[0m"
   * )
@@ -14,14 +15,17 @@ esac
 echo -e "\033[34m拉取 stable-diffusion-webui 项目\033[0m"
 
 # Step 1
+echo -e "git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git"
 git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
 
 # Step 2
 echo -e "\033[34m切换到 stable-diffusion-webui 目录\033[0m"
+echo -e "cd stable-diffusion-webui"
 cd stable-diffusion-webui
 
 # Step 3
 echo -e "\033[34m新建 repositories 文件夹\033[0m"
+echo -e "mkdir repositories"
 mkdir repositories
 
 # Step 4
