@@ -57,12 +57,7 @@ if [[ $PORT == "" ]]; then
 fi
 
 if [[ $answer =~ ^[Yy]$ ]]; then
-  echo -e "\033[34m正在安装nginx\033[0m"
-  sudo apt update
-  sudo apt install nginx
-  sudo systemctl start nginx
-  echo -e "\033[34m请手动配置nginx映射...\033[0m"
-  echo -e "\033[32m Please to key in ENTER to continue...\033[0m"
+  echo -e "\033[34m 启动Stable diffusion 按ENTER键继续，Ctrl+C退出 \033[0m"
   read
   COMMANDLINE_ARGS="--medvram --always-batch-cond-uncond --port $PORT --listen" REQS_FILE="requirements.txt" python launch.py 
   $COMMANDLINE_ARGS $REQS_FILE
