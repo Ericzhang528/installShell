@@ -8,8 +8,10 @@ case ${DownloadPython:0:1} in
      echo -e "bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-python-3.10-pip.sh)"
      bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-python-3.10-pip.sh)
      echo -e "\033[32m安装完成！！\033[0m"
+     ;;
   * )
      echo -e "$DownloadPython"
+     ;;
 esac
 # Step 0
 echo -e "\033[34m拉取 stable-diffusion-webui 项目\033[0m"
