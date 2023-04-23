@@ -1,17 +1,18 @@
 #!/bin/bash
-echo -e  "\033[34m是否安装Python-3.10和pip\033[0m"
-echo -e  "\033[34m此操作会将Python命令更换为Python3的环境，并且将pip升级到最新版本。（yes/no）\033[0m"
+echo -e "\033[34m是否安装 Python-3.10 和 pip？\033[0m"
+echo -e "\033[34m此操作会将 Python 命令更换为 Python3 的环境，并将 pip 升级到最新版本。（yes/no）\033[0m"
 read DownloadPython
-case "${DownloadPython:0:1}" in
-  y|Y )
-     echo -e "$DownloadPython";
-     echo -e "bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-python-3.10-pip.sh)";
-     bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-python-3.10-pip.sh);
-     echo -e "\033[32m安装完成！！\033[0m"
-     ;;
-  * )
-     echo -e "$DownloadPython"
-     ;;
+
+case ${DownloadPython:0:1} in
+    y|Y )
+        echo -e "$DownloadPython"
+        echo -e "bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-python-3.10-pip.sh)"
+        bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-python-3.10-pip.sh)
+        echo -e "\033[32m安装完成！！\033[0m"
+        ;;
+    * )
+        echo -e "$DownloadPython"
+        ;;
 esac
 # Step 0
 echo -e "\033[34m拉取 stable-diffusion-webui 项目\033[0m"
