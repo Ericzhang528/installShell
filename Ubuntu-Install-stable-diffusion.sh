@@ -59,9 +59,9 @@ fi
 if [[ $answer =~ ^[Yy]$ ]]; then
   echo -e "\033[34m 启动Stable diffusion 按ENTER键继续，Ctrl+C退出 \033[0m"
   read
-  COMMANDLINE_ARGS="--medvram --always-batch-cond-uncond --port $PORT --listen" REQS_FILE="requirements.txt" python launch.py 
+  COMMANDLINE_ARGS="--medvram --always-batch-cond-uncond --enable-insecure-extension-access  --port $PORT --listen" REQS_FILE="requirements.txt" python launch.py 
   $COMMANDLINE_ARGS $REQS_FILE
 else
-  COMMANDLINE_ARGS="--medvram --always-batch-cond-uncond --port $PORT" REQS_FILE="requirements.txt" python launch.py 
+  COMMANDLINE_ARGS="--medvram --always-batch-cond-uncond --enable-insecure-extension-access --port $PORT" REQS_FILE="requirements.txt" python launch.py 
   $COMMANDLINE_ARGS $REQS_FILE
 fi
