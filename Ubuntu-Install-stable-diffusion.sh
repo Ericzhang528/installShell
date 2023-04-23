@@ -44,39 +44,36 @@ echo -e "\033[34m拉取 CodeFormer 依赖模型\033[0m"
 git clone https://github.com/sczhou/CodeFormer.git repositories/CodeFormer
 
 # Step 7
-echo -e "\033[34m请输入您要使用的端口号：\033[0m"
-read PORT
 echo -e "\033[34m你是否要允许公网访问？（y/n）\033[0m"
 read answer
-case ${answer:0:1} in
-    y|Y )
-        
-        echo -e "\033[34m正在安装nginx \033[0m"
-        sudo apt update
-        sudo apt install nginx
-        sudo systemctl start nginx
-        echo -e "\033[34m 请手动配置nginx映射... \033[0m"
-        read tips
-        echo -e "\033[34m 安装screen \033[0m"
-        sudo apt -y install screen
-        echo -e "\033[34m 请输入要创建的Screen窗口名称,具体Screen使用请参考官方文档 \033[0m"
-        read ScreenName
-        screen -S ScreenName
-        case ${tips:0:1} in
-          y|Y )
-            COMMANDLINE_ARGS="--medvram --always-batch-cond-uncond --port $PORT --listen"
-            REQS_FILE="requirements.txt"
-            python launch.py
-            ;;
-          * )
-            COMMANDLINE_ARGS="--medvram --always-batch-cond-uncond --port $PORT --listen"
-            REQS_FILE="requirements.txt"
-            python launch.py
-            ;;
-        esac
-    * )
-        COMMANDLINE_ARGS="--medvram --always-batch-cond-uncond --port $PORT"
-        REQS_FILE="requirements.txt"
-        python launch.py
-        ;;
-esac
+
+echo -e "\033[34m请输入您要使用的端口号：\033[0m"
+read PORT
+
+if [[ $PORT == "" ]]; then
+  PORT="8080"
+fi
+
+if [[ $answer =~ ^[Yy]$ ]]; then
+  echo -e "\033[34m正在安装nginx\033[0m"
+  sudo apt update
+  sudo apt install nginx
+  sudo systemctl start nginx
+  echo -e "\033[34m请手动配置nginx映射...\033[0m"
+  read
+  echo -e "\033[34m安装screen\033[0m"
+  sudo apt -y install screen
+  echo -e "\033[34m请输入要创建的Screen窗口名称，具体Screen使用请参考官方文档\033[0m"
+  read ScreenName
+  if [[ $ScreenName == "" ]]; then
+    ScreenName="sd"
+  fi
+  screen -S $ScreenName
+  COMMANDLINE_ARGS="--medvram --always-batch-cond-uncond --port $PORT --listen"
+  REQS_FILE="requirements.txt"
+  python launch.py $COMMANDLINE_ARGS $REQS_FILE
+else
+  COMMANDLINE_ARGS="--medvram --always-batch-cond-uncond --port $PORT"
+  REQS_FILE="requirements.txt"
+  python launch.py $COMMANDLINE_ARGS $REQS_FILE
+fi
