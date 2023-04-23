@@ -2,11 +2,11 @@
 echo -e  "\033[34m是否安装Python-3.10和pip\033[0m"
 echo -e  "\033[34m此操作会将Python命令更换为Python3的环境，并且将pip升级到最新版本。（yes/no）\033[0m"
 read DownloadPython
-case ${DownloadPython:0:1} in
+case "${DownloadPython:0:1}" in
   y|Y )
-     echo -e "$DownloadPython"
-     echo -e "bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-python-3.10-pip.sh)"
-     bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-python-3.10-pip.sh)
+     echo -e "$DownloadPython";
+     echo -e "bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-python-3.10-pip.sh)";
+     bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-python-3.10-pip.sh);
      echo -e "\033[32m安装完成！！\033[0m"
      ;;
   * )
