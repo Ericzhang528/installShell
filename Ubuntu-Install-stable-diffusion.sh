@@ -69,11 +69,7 @@ if [[ $answer =~ ^[Yy]$ ]]; then
     ScreenName="sd"
   fi
   screen -S $ScreenName
-  COMMANDLINE_ARGS="--medvram --always-batch-cond-uncond --port $PORT --listen"
-  REQS_FILE="requirements.txt"
-  python launch.py $COMMANDLINE_ARGS $REQS_FILE
+  COMMANDLINE_ARGS="--medvram --always-batch-cond-uncond --port $PORT --listen" REQS_FILE="requirements.txt" python launch.py $COMMANDLINE_ARGS $REQS_FILE
 else
-  COMMANDLINE_ARGS="--medvram --always-batch-cond-uncond --port $PORT"
-  REQS_FILE="requirements.txt"
-  python launch.py $COMMANDLINE_ARGS $REQS_FILE
+  COMMANDLINE_ARGS="--medvram --always-batch-cond-uncond --port $PORT" REQS_FILE="requirements.txt" python launch.py $COMMANDLINE_ARGS $REQS_FILE
 fi
