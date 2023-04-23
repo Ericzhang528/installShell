@@ -9,6 +9,8 @@ case ${DownloadPython:0:1} in
         echo -e "bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-python-3.10-pip.sh)"
         bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-python-3.10-pip.sh)
         echo -e "\033[32m安装完成！！\033[0m"
+        echo -e "\033[32m Please to key in ENTER to continue...\033[0m"
+        read
         ;;
     * )
         echo -e "$DownloadPython"
@@ -60,16 +62,11 @@ if [[ $answer =~ ^[Yy]$ ]]; then
   sudo apt install nginx
   sudo systemctl start nginx
   echo -e "\033[34m请手动配置nginx映射...\033[0m"
+  echo -e "\033[32m Please to key in ENTER to continue...\033[0m"
   read
-  echo -e "\033[34m安装screen\033[0m"
-  sudo apt -y install screen
-  echo -e "\033[34m请输入要创建的Screen窗口名称，具体Screen使用请参考官方文档\033[0m"
-  read ScreenName
-  if [[ $ScreenName == "" ]]; then
-    ScreenName="sd"
-  fi
-  screen -S $ScreenName
-  COMMANDLINE_ARGS="--medvram --always-batch-cond-uncond --port $PORT --listen" REQS_FILE="requirements.txt" python launch.py $COMMANDLINE_ARGS $REQS_FILE
+  COMMANDLINE_ARGS="--medvram --always-batch-cond-uncond --port $PORT --listen" REQS_FILE="requirements.txt" python launch.py 
+  $COMMANDLINE_ARGS $REQS_FILE
 else
-  COMMANDLINE_ARGS="--medvram --always-batch-cond-uncond --port $PORT" REQS_FILE="requirements.txt" python launch.py $COMMANDLINE_ARGS $REQS_FILE
+  COMMANDLINE_ARGS="--medvram --always-batch-cond-uncond --port $PORT" REQS_FILE="requirements.txt" python launch.py 
+  $COMMANDLINE_ARGS $REQS_FILE
 fi
