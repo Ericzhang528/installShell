@@ -203,8 +203,8 @@ if [[ $num == 1 || $num == 0 ]]; then
     echo "依赖项已添加至 requirements.txt 文件"
     # 执行下一步的 Bash 脚本或命令
   fi
-  echo -e " pip install -r requirements.txt"
-  pip install -r requirements.txt
+  echo -e "sudo pip install -r requirements.txt"
+  sudo pip install -r requirements.txt
   echo -e "\033[34m 开始运行ChatGLM-6B \033[0m"
   while true; do
     echo -e "\033[34m 请输入端口号：\033[0m"
