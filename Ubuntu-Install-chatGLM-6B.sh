@@ -146,7 +146,7 @@ elif [[ $num == 2 ]]; then
     fi
   done
 
-  python streamlit run ./web_demo2.py --server.port $port --server.address 0.0.0.0
+  python -m streamlit run ./web_demo2.py --server.port $port --server.address 0.0.0.0
   # 执行Python 3.10和最新版本pip安装脚本的命令
   echo "http://0.0.0.0:$port"
 elif [[ $num == 3 ]]; then
@@ -177,7 +177,7 @@ elif [[ $num == 3 ]]; then
     fi
   done
 
-  python streamlit run ./web_demo2.py --server.port $port --server.address 0.0.0.0
+  python -m streamlit run ./web_demo2.py --server.port $port --server.address 0.0.0.0
   # 执行Python 3.10和最新版本pip安装脚本的命令
   echo "http://0.0.0.0:$port"
 else
@@ -203,8 +203,8 @@ if [[ $num == 1 || $num == 0 ]]; then
     echo "依赖项已添加至 requirements.txt 文件"
     # 执行下一步的 Bash 脚本或命令
   fi
-  echo -e "sudo pip install -r requirements.txt"
-  sudo pip install -r requirements.txt
+  echo -e " pip install -r requirements.txt"
+  pip install -r requirements.txt
   echo -e "\033[34m 开始运行ChatGLM-6B \033[0m"
   while true; do
     echo -e "\033[34m 请输入端口号：\033[0m"
@@ -217,7 +217,7 @@ if [[ $num == 1 || $num == 0 ]]; then
     fi
   done
 
-  python streamlit run ./web_demo2.py --server.port $port --server.address 0.0.0.0
+  python -m streamlit run ./web_demo2.py --server.port $port --server.address 0.0.0.0
 else
   echo -e "\033[34m 退出脚本 \033[0m"
   exit 0
