@@ -1,0 +1,17 @@
+常见的stable diffusion模型及安装指令
+安装目录： stable-diffusion/models/Stable-diffusion
+
+DreamShaper
+curl -OJL https://civitai.com/api/download/models/43888
+
+MeinaMix
+curl -OJL https://civitai.com/api/download/models/46137
+
+realdosmix
+curl -OJL https://civitai.com/api/download/models/43888
+
+GuoFeng3
+curl -OJL https://civitai.com/api/download/models/36644
+
+LOFI
+curl -OJL https://civitai.com/api/download/models/44882
