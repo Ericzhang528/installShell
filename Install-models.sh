@@ -1,4 +1,6 @@
 #!/bin/bash
+sudo su root
+
 echo -e "\033[34m你是否要安装DreamShaper？（y/n）\033[0m"
 read InstallDreamShaper
 
