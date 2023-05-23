@@ -12,13 +12,13 @@ echo -e "\033[34m 请输入0 - 4执行脚本 \033[0m"
 read -p "请输入：" num
 
 # 检查命令是否存在
-if ! command -v python3 &> /dev/null || ! command -v pip &> /dev/null; then
+if ! command -v python &> /dev/null || ! command -v pip &> /dev/null; then
   echo "Python或pip命令未找到，请确保已安装Python并正确设置环境变量"
   exit 1
 fi
 
 # 获取当前Python版本
-current_python_version=$(python3 -c 'import sys; print(sys.version_info[:3])')
+current_python_version=$(python -c 'import sys; print(sys.version_info[:3])')
 
 # 获取当前pip版本
 current_pip_version=$(pip --version | awk '{print $2}')
