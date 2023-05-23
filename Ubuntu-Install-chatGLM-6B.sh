@@ -101,7 +101,7 @@ if [[ $num == 0 ]]; then
     echo -e "\033[34m screen 已安装，执行下一步操作... \033[0m"
     # 执行下一步的 Bash 文件或命令
     echo -e "\033[34m 创建GLM的Screen窗口 \033[0m"
-    screen -S GLM
+    screen -dmS GLM bash -c 'echo "This is running in the GLM screen session"'
     echo -e "\033[34m GLM的Screen窗口创建完成，执行下一步操作... \033[0m"
   else
     echo -e "\033[34m screen 未安装，正在执行安装步骤... \033[0m"
@@ -155,12 +155,12 @@ elif [[ $num == 3 ]]; then
   echo "是否运行Screen GLM？（y/n）"
   read -r answer
   if [[ $answer =~ ^[Yy]$ ]]; then
-    if  'screen -ls | grep -q GLM'; then
+    if screen -ls | grep -q GLM; then
       echo "已检测到名为 GLM 的 Screen，切换到该 Screen 的 Bash 脚本..."
       screen -r GLM
     else
       echo "未检测到名为 GLM 的 Screen，创建 GLM 并执行下一步操作..."
-      screen -dmS GLM
+      screen -dmS GLM bash -c 'echo "This is running in the GLM screen session"'
     fi
   else
     echo "已取消运行Screen GLM"
