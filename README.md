@@ -26,6 +26,8 @@ bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/
 #### install models please read Install-models.text
 
 ### Install chatGLM-6B auto shell
+This shell script must be executed in the ubuntu system, and has only been attempted on Tencent Cloud's GPU server. And you must first execute the __sudo su root__ command before executing this script. Otherwise, an error will be reported.
+
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-chatGLM-6B.sh)
 ```
