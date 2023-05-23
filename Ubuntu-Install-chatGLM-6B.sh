@@ -1,4 +1,3 @@
-#!/bin/bash
 sudo bash -c 'echo "This is a privileged command"'
 sudo su root
 echo -e "\033[34m 当前脚本由CloudSeaSky Studio提供 \033[0m"
