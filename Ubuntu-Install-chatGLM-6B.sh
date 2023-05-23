@@ -71,7 +71,7 @@ if [[ $num == 0 || $num == 1 || $num == 4 ]]; then
     read -r answer
     if [[ $answer =~ ^[Yy]$ ]]; then
       echo "执行安装脚本..."
-      sudo "bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-python-3.10-pip.sh)"
+      bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-python-3.10-pip.sh)
     else
       echo "已取消安装，退出脚本"
       exit 0
@@ -88,7 +88,7 @@ if [[ $num == 0 ]]; then
     read -r answer
     if [[ $answer =~ ^[Yy]$ ]]; then
       echo "执行安装脚本..."
-      sudo "bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-python-3.10-pip.sh)"
+       bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-python-3.10-pip.sh)
     else
       echo "已取消安装，退出脚本"
       exit 0
@@ -123,7 +123,7 @@ elif [[ $num == 2 ]]; then
   read -r answer
   if [[ $answer =~ ^[Yy]$ ]]; then
 
-    if sudo 'screen -ls | grep -q GLM'; then
+    if  'screen -ls | grep -q GLM'; then
         echo "已检测到名为 GLM 的 Screen，切换到该 Screen 的 Bash 脚本..."
         screen -r GLM
     else
@@ -155,7 +155,7 @@ elif [[ $num == 3 ]]; then
   echo "是否运行Screen GLM？（y/n）"
   read -r answer
   if [[ $answer =~ ^[Yy]$ ]]; then
-    if sudo 'screen -ls | grep -q GLM'; then
+    if  'screen -ls | grep -q GLM'; then
       echo "已检测到名为 GLM 的 Screen，切换到该 Screen 的 Bash 脚本..."
       screen -r GLM
     else
@@ -202,7 +202,7 @@ if [[ $num == 1 || $num == 0 ]]; then
     echo "依赖项已添加至 requirements.txt 文件"
     # 执行下一步的 Bash 脚本或命令
   fi
-  echo -e "sudo pip install -r requirements.txt"
+  echo -e " pip install -r requirements.txt"
   pip install -r requirements.txt
   echo -e "\033[34m 开始运行ChatGLM-6B \033[0m"
   while true; do
