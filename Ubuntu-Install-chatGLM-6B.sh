@@ -196,6 +196,7 @@ if [[ $num == 1 || $num == 0 ]]; then
     # 执行下一步的 Bash 脚本或命令
   else
     echo "requirements.txt 文件缺少 chardet、streamlit 或 streamlit-chat 依赖项，正在添加..."
+    echo "" >> requirements.txt
     echo "chardet" >> requirements.txt
     echo "streamlit" >> requirements.txt
     echo "streamlit-chat" >> requirements.txt
