@@ -18,7 +18,7 @@ if ! command -v python &> /dev/null || ! command -v pip &> /dev/null; then
 fi
 
 # 获取当前Python版本
-current_python_version=$(python -c 'import sys; print(sys.version_info[:3])')
+current_python_version=$(python --version 2>&1 | awk '{print $2}')
 
 # 获取当前pip版本
 current_pip_version=$(pip --version | awk '{print $2}')
@@ -29,10 +29,10 @@ required_pip_version="23.0"
 
 # 比较版本号
 function compare_versions {
-  local version1=$1
-  local version2=$2
-  local result=$(awk -v v1="$version1" -v v2="$version2" 'BEGIN{if (v1 >= v2) exit 0; exit 1}')
-  echo $result
+    local version1=$1
+    local version2=$2
+    local result=$(awk -v v1="$version1" -v v2="$version2" 'BEGIN{if (v1 >= v2) exit 0; exit 1}')
+    echo $result
 }
 
 # 检查Python版本是否大于等于所需版本
@@ -207,3 +207,5 @@ else
   echo -e "\033[34m 退出脚本 \033[0m"
   exit 0
 fi
+
+
