@@ -22,3 +22,8 @@ Install stable diffusion auto shell please use: __Install-stable-diffusion.sh__
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-stable-diffusion.sh)
 ```
+
+### Install chatGLM-6B auto shell
+```bash
+bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-chatGLM-6B.sh)
+```
