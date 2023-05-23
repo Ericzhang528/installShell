@@ -16,6 +16,26 @@ if ! command -v python &> /dev/null || ! command -v pip &> /dev/null; then
   echo "Python或pip命令未找到，请确保已安装Python并正确设置环境变量"
   exit 1
 fi
+# 比较版本号
+function compare_versions {
+    local version1=$1
+    local version2=$2
+    local IFS=.
+    local arr1=($version1)
+    local arr2=($version2)
+
+    for ((i=0; i<${#arr1[@]}; i++)); do
+        if [[ ${arr1[i]} -lt ${arr2[i]} ]]; then
+            echo -1
+            return
+        elif [[ ${arr1[i]} -gt ${arr2[i]} ]]; then
+            echo 1
+            return
+        fi
+    done
+
+    echo 0
+}
 
 # 获取当前Python版本
 current_python_version=$(python --version 2>&1 | awk '{print $2}')
@@ -25,15 +45,7 @@ current_pip_version=$(pip --version | awk '{print $2}')
 
 # 定义所需的Python版本和pip版本
 required_python_version="3.10"
-required_pip_version="23.0"
-
-# 比较版本号
-function compare_versions {
-    local version1=$1
-    local version2=$2
-    local result=$(awk -v v1="$version1" -v v2="$version2" 'BEGIN{if (v1 >= v2) exit 0; exit 1}')
-    echo $result
-}
+required_pip_version="23.0.2"
 
 # 检查Python版本是否大于等于所需版本
 python_version_check=$(compare_versions $current_python_version $required_python_version)
@@ -41,9 +53,11 @@ python_version_check=$(compare_versions $current_python_version $required_python
 # 检查pip版本是否大于等于所需版本
 pip_version_check=$(compare_versions $current_pip_version $required_pip_version)
 
+
+
 if [[ $num == 0 || $num == 1 || $num == 4 ]]; then
   echo -e "\033[34m 检测Python版本和Pip版本 \033[0m"
-  if [[ $python_version_check == 0 && $pip_version_check == 0 ]]; then
+  if [[ $python_version_check -ge 0 && $pip_version_check -ge 0  ]]; then
     echo "Python版本和pip版本符合要求，继续执行下一步操作..."
     if [[ $num == 4 ]]; then
       echo "Python版本："
@@ -67,7 +81,7 @@ fi
 
 if [[ $num == 0 ]]; then
   echo -e "\033[34m 检测Python版本和Pip版本 \033[0m"
-  if [[ $python_version_check == 0 && $pip_version_check == 0 ]]; then
+  if [[ $python_version_check -ge 0 && $pip_version_check -ge 0  ]]; then
     echo "Python版本和pip版本符合要求，继续执行下一步操作..."
   else
     echo "Python版本或pip版本低于要求，是否执行安装脚本？（y/n）"
