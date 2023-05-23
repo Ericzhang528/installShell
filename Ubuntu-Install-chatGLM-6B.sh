@@ -1,5 +1,4 @@
-sudo bash -c 'echo "This is a privileged command"'
-sudo su root
+#!/bin/bash
 echo -e "\033[34m 当前脚本由CloudSeaSky Studio提供 \033[0m"
 echo -e "\033[34m 本脚本仅适用于腾讯云的Ubuntu系统 \033[0m"
 echo -e "\033[34m 其他系统暂未尝试，本脚本仅适用于海外服务器 \033[0m"
