@@ -101,16 +101,16 @@ if [[ $num == 0 ]]; then
     echo -e "\033[34m screen 已安装，执行下一步操作... \033[0m"
     # 执行下一步的 Bash 文件或命令
     echo -e "\033[34m 创建GLM的Screen窗口 \033[0m"
-    sudo screen -S GLM
+    screen -S GLM
     echo -e "\033[34m GLM的Screen窗口创建完成，执行下一步操作... \033[0m"
   else
     echo -e "\033[34m screen 未安装，正在执行安装步骤... \033[0m"
-    sudo apt update
-    sudo apt install screen
+    apt update
+    apt install screen
     screen --version
     echo -e "\033[34m screen 安装完成，执行下一步操作... \033[0m"
     echo -e "\033[34m 创建GLM的Screen窗口 \033[0m"
-    sudo screen -dmS GLM
+    screen -dmS GLM
     echo -e "\033[34m GLM的Screen窗口创建完成，执行下一步操作... \033[0m"
   fi
 elif [[ $num == 1 ]]; then
@@ -125,10 +125,10 @@ elif [[ $num == 2 ]]; then
 
     if sudo 'screen -ls | grep -q GLM'; then
         echo "已检测到名为 GLM 的 Screen，切换到该 Screen 的 Bash 脚本..."
-        sudo screen -r GLM
+        screen -r GLM
     else
         echo "未检测到名为 GLM 的 Screen，创建 GLM 并执行下一步操作..."
-        sudo screen -dmS GLM
+        screen -dmS GLM
     fi
   else
     echo "已取消运行Screen GLM"
@@ -146,7 +146,7 @@ elif [[ $num == 2 ]]; then
     fi
   done
 
-  sudo python streamlit run ./web_demo2.py --server.port $port --server.address 0.0.0.0
+  python streamlit run ./web_demo2.py --server.port $port --server.address 0.0.0.0
   # 执行Python 3.10和最新版本pip安装脚本的命令
   echo "http://0.0.0.0:$port"
 elif [[ $num == 3 ]]; then
@@ -157,10 +157,10 @@ elif [[ $num == 3 ]]; then
   if [[ $answer =~ ^[Yy]$ ]]; then
     if sudo 'screen -ls | grep -q GLM'; then
       echo "已检测到名为 GLM 的 Screen，切换到该 Screen 的 Bash 脚本..."
-      sudo screen -r GLM
+      screen -r GLM
     else
       echo "未检测到名为 GLM 的 Screen，创建 GLM 并执行下一步操作..."
-      sudo screen -dmS GLM
+      screen -dmS GLM
     fi
   else
     echo "已取消运行Screen GLM"
@@ -177,7 +177,7 @@ elif [[ $num == 3 ]]; then
     fi
   done
 
-  sudo python streamlit run ./web_demo2.py --server.port $port --server.address 0.0.0.0
+  python streamlit run ./web_demo2.py --server.port $port --server.address 0.0.0.0
   # 执行Python 3.10和最新版本pip安装脚本的命令
   echo "http://0.0.0.0:$port"
 else
@@ -216,7 +216,7 @@ if [[ $num == 1 || $num == 0 ]]; then
     fi
   done
 
-  sudo python streamlit run ./web_demo2.py --server.port $port --server.address 0.0.0.0
+  python streamlit run ./web_demo2.py --server.port $port --server.address 0.0.0.0
 else
   echo -e "\033[34m 退出脚本 \033[0m"
   exit 0
