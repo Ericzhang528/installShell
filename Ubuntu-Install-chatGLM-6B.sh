@@ -71,7 +71,7 @@ if [[ $num == 0 || $num == 1 || $num == 4 ]]; then
     read -r answer
     if [[ $answer =~ ^[Yy]$ ]]; then
       echo "执行安装脚本..."
-      sudo su root -c "bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-python-3.10-pip.sh)"
+      sudo "bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-python-3.10-pip.sh)"
     else
       echo "已取消安装，退出脚本"
       exit 0
@@ -88,7 +88,7 @@ if [[ $num == 0 ]]; then
     read -r answer
     if [[ $answer =~ ^[Yy]$ ]]; then
       echo "执行安装脚本..."
-      sudo su root -c "bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-python-3.10-pip.sh)"
+      sudo "bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-python-3.10-pip.sh)"
     else
       echo "已取消安装，退出脚本"
       exit 0
@@ -101,7 +101,7 @@ if [[ $num == 0 ]]; then
     echo -e "\033[34m screen 已安装，执行下一步操作... \033[0m"
     # 执行下一步的 Bash 文件或命令
     echo -e "\033[34m 创建GLM的Screen窗口 \033[0m"
-    sudo su root -c "screen -S GLM"
+    sudo "screen -S GLM"
     echo -e "\033[34m GLM的Screen窗口创建完成，执行下一步操作... \033[0m"
   else
     echo -e "\033[34m screen 未安装，正在执行安装步骤... \033[0m"
@@ -110,7 +110,7 @@ if [[ $num == 0 ]]; then
     screen --version
     echo -e "\033[34m screen 安装完成，执行下一步操作... \033[0m"
     echo -e "\033[34m 创建GLM的Screen窗口 \033[0m"
-    sudo su root -c "screen -S GLM"
+    sudo screen -dmS GLM
     echo -e "\033[34m GLM的Screen窗口创建完成，执行下一步操作... \033[0m"
   fi
 elif [[ $num == 1 ]]; then
@@ -123,12 +123,12 @@ elif [[ $num == 2 ]]; then
   read -r answer
   if [[ $answer =~ ^[Yy]$ ]]; then
 
-    if sudo su root -c 'screen -ls | grep -q GLM'; then
+    if sudo 'screen -ls | grep -q GLM'; then
         echo "已检测到名为 GLM 的 Screen，切换到该 Screen 的 Bash 脚本..."
-        sudo su root -c 'screen -r GLM'
+        sudo 'screen -r GLM'
     else
         echo "未检测到名为 GLM 的 Screen，创建 GLM 并执行下一步操作..."
-        sudo su root -c 'screen -dmS GLM'
+        sudo 'screen -dmS GLM'
     fi
   else
     echo "已取消运行Screen GLM"
@@ -146,7 +146,7 @@ elif [[ $num == 2 ]]; then
     fi
   done
 
-  sudo su root -c "python streamlit run ./web_demo2.py --server.port $port --server.address 0.0.0.0"
+  sudo"python streamlit run ./web_demo2.py --server.port $port --server.address 0.0.0.0"
   # 执行Python 3.10和最新版本pip安装脚本的命令
   echo "http://0.0.0.0:$port"
 elif [[ $num == 3 ]]; then
@@ -155,12 +155,12 @@ elif [[ $num == 3 ]]; then
   echo "是否运行Screen GLM？（y/n）"
   read -r answer
   if [[ $answer =~ ^[Yy]$ ]]; then
-    if sudo su root -c 'screen -ls | grep -q GLM'; then
+    if sudo  'screen -ls | grep -q GLM'; then
       echo "已检测到名为 GLM 的 Screen，切换到该 Screen 的 Bash 脚本..."
-      sudo su root -c 'screen -r GLM'
+      sudo 'screen -r GLM'
     else
       echo "未检测到名为 GLM 的 Screen，创建 GLM 并执行下一步操作..."
-      sudo su root -c 'screen -dmS GLM'
+      sudo 'screen -dmS GLM'
     fi
   else
     echo "已取消运行Screen GLM"
@@ -177,7 +177,7 @@ elif [[ $num == 3 ]]; then
     fi
   done
 
-  sudo su root -c "python streamlit run ./web_demo2.py --server.port $port --server.address 0.0.0.0"
+  sudo  "python streamlit run ./web_demo2.py --server.port $port --server.address 0.0.0.0"
   # 执行Python 3.10和最新版本pip安装脚本的命令
   echo "http://0.0.0.0:$port"
 else
@@ -203,7 +203,7 @@ if [[ $num == 1 || $num == 0 ]]; then
     # 执行下一步的 Bash 脚本或命令
   fi
   echo -e "sudo pip install -r requirements.txt"
-  sudo su root -c "pip install -r requirements.txt"
+  sudo  "pip install -r requirements.txt"
   echo -e "\033[34m 开始运行ChatGLM-6B \033[0m"
   while true; do
     echo -e "\033[34m 请输入端口号：\033[0m"
@@ -216,7 +216,7 @@ if [[ $num == 1 || $num == 0 ]]; then
     fi
   done
 
-  sudo su root -c "python streamlit run ./web_demo2.py --server.port $port --server.address 0.0.0.0"
+  sudo "python streamlit run ./web_demo2.py --server.port $port --server.address 0.0.0.0"
 else
   echo -e "\033[34m 退出脚本 \033[0m"
   exit 0
