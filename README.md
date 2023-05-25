@@ -33,7 +33,7 @@ sudo su root
 bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Ubuntu-Install-chatGLM-6B.sh)
 ```
 ## Centos instructions
-### Install python3.10 and pip in Centos system
+### Install python3.10 and pip in Centos system （Please do not use this problematic version.）
 Install python3.10 and pip please use: __Centos7-Install-python3.10-pip.sh__
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/Centos7-Install-python3.10-pip.sh)
