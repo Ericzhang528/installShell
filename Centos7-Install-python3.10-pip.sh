@@ -2,7 +2,7 @@
 
 # Update package list
 echo -e "\033[34mRunning yum update\033[0m"
-sudo yum update
+sudo yum update -y
 
 # Install dependencies for building Python
 echo -e "\033[34mInstall dependencies for building Python\033[0m"
