@@ -1,5 +1,7 @@
 #!/bin/bash
-
+echo -e "\033[34m Start Install python3.10 and update pip to latest version.... \033[0m"
+echo -e "Please key Enter to Continue..."
+read
 # Update package list
 echo -e "\033[34mRunning yum update\033[0m"
 sudo yum update -y
