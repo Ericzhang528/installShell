@@ -56,6 +56,8 @@ if [[ $PORT == "" ]]; then
   PORT="8080"
 fi
 
+pip install torch==2.0.1 torchvision==0.15.2 --extra-index-url https://download.pytorch.org/whl/cu118
+
 if [[ $answer =~ ^[Yy]$ ]]; then
   echo -e "\033[34m 启动Stable diffusion 按ENTER键继续，Ctrl+C退出 \033[0m"
   read
