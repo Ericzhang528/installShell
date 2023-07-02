@@ -1,4 +1,4 @@
-*Read this in [English](README.ZH.md)*
+*Read this in [Chinese](README.ZH.md)*
 # Common install auto shell for Linux
 
 ## Ubuntu instructions 
