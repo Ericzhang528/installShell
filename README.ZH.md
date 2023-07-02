@@ -7,7 +7,7 @@ bash <(curl -s https://raw.githubusercontent.com/Ericzhang528/installShell/main/
 ```
 ### 安装稳定版扩散自动安装脚本
 #### 步骤1
-您必须使用Ubuntu系统，并且必须使用GPU云。该脚本不会安装GPU驱动程序，请您自行手动安装驱动程序。
+您必须使用Ubuntu系统，并且必须使用GPU云服务器。该脚本不会安装GPU驱动程序，请您自行手动安装驱动程序。
 
 #### 步骤2
 您必须在系统中安装Python3.10和pip 23.x版本。
